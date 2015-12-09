@@ -17,9 +17,28 @@
       </div>
       <div>
         <input type="checkbox" ng-model="toggleUserCtlr">hide - show</input>
-        <p show="toggleUserCtlr">Toggle this text with the checkbox</p> 
+        <p show="toggleUserCtlr">Toggle this text with the checkbox</p>
+      </div>
+
+      <div ng-controller="DefaultValueCtlr">
+        <p>{{value}}</p>
+      </div>
+      
+      <div ng-controller="IncrementCtrl"> 
+        <button ng-click="add(1)">+</button>
+        <button ng-click="add(-1)">-</button>
+        <p>{{value}}</p>
+      </div>
+      
+      <div ng-controller="WatchCtrl"> 
+        <input type="text" ng-model="name">
+        <p>{{greeting}}</p>
       </div>
     </div>
+
     <script src="script\ToggleCtlr.js"></script>
+    <script src="script\Controllers\DefaultValueCtlr.js"></script>
+    <script src="script\Controllers\IncrementCtrl.js"></script>
+    <script src="script\Controllers\WatchCtrl.js"></script>
   </body>
 </html>
