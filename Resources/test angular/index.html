@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="\node_modules\angular\angular.js"></script>
+    <script src="\script\app.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div ng-app="myApp">
+      <div ng-controller="ToggleCtlr">
+        <button ng-click="toggle()">Toggle</button>
+        <h1 ng-show="visible">Div content</h1>
+      </div>
+      <div>
+        <input type="text" ng-model="inputText"></input>
+        <p>{{inputText | uppercase}}</p>
+      </div>
+      <div>
+        <input type="checkbox" ng-model="toggleUserCtlr">hide - show</input>
+        <p show="toggleUserCtlr">Toggle this text with the checkbox</p> 
+      </div>
+    </div>
+    <script src="script\ToggleCtlr.js"></script>
+  </body>
+</html>
