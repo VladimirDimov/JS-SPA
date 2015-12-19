@@ -1,0 +1,32 @@
+<div class="container" ng-controller="ArticlesCtrl">
+	<div class="row">
+		<div class="col-lg-10">
+			<div class="input-group">
+				<span class="input-group-btn"></span>
+				<input type="text" class="form-control" placeholder="Search for..." ng-model="searchFor">
+			</div>
+		</div>
+	</div>
+	<button class="btn btn-primary" ng-click="addNew()">Add</button>
+	<div ng-show="showAddNew">
+		<h2>Add new article</h2>
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Title</label>
+				<div class="col-sm-10">
+					<input class="form-control" id="focusedInput" type="text" ng-model="title">
+				</div>
+				<label class="col-sm-2 control-label">Content</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" id="focusedInput" type="text" rows="5" ng-model="content"></textarea>
+				</div>
+			</div>
+			<input type="text" md-dropdown data='tagNames' ng-model="tagToAdd">
+			<button class="btn btn-default" ng-disabled="isAddTagDisabled">Add</button>
+			<br>
+			<button type="button" class="btn btn-primary" ng-click="add()">Add</button>
+			<button type="button" class="btn btn-primary" ng-click="cancel()">Cancel</button>
+		</form>
+		<hr>
+	</div>
+</div>

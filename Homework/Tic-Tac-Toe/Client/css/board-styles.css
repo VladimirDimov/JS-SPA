@@ -1,0 +1,48 @@
+
+table.hovertable {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.hovertable th {
+	background-color:#c3dde0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+table.hovertable tr {
+	background-color:#d4e3e5;
+}
+
+table.hovertable td {
+	border-width: 1px;
+	padding: auto;
+	border-style: solid;
+	border-color: #a9c6c9;
+	width: 80px;
+	height: 80px;
+	text-align: center;
+	font-size: 8ex;
+}
+
+table.hovertable td:hover {
+	background-color: grey;
+	cursor: pointer;
+}
+
+table.hovertable td:hover {
+	background-color: #999999;
+}
+
+.unselectable {
+    -webkit-user-select: false;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+}

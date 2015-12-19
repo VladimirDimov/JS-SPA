@@ -1,79 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="\node_modules\angular\angular.js"></script>
     <script src="\script\app.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="/node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
-    <title>Practice Angular</title>
+    <title></title>
   </head>
   <body>
     <div ng-app="myApp">
-      <div ng-controller="ToggleCtlr" class="form-group">
-        <button ng-click="toggle()" class="btn btn-primary">Toggle</button>
+      <div ng-controller="ToggleCtlr">
+        <button ng-click="toggle()">Toggle</button>
         <h1 ng-show="visible">Div content</h1>
       </div>
-      <div class="form-group">
+      <div>
         <input type="text" ng-model="inputText"></input>
         <p>{{inputText | uppercase}}</p>
       </div>
-      <div class="form-group">
+      <div>
         <input type="checkbox" ng-model="toggleUserCtlr">hide - show</input>
         <p show="toggleUserCtlr">Toggle this text with the checkbox</p>
       </div>
-      <div ng-controller="DefaultValueCtlr" class="form-group">
+
+      <div ng-controller="DefaultValueCtlr">
         <p>{{value}}</p>
       </div>
       
-      <div ng-controller="IncrementCtrl" class="form-group">
-        <button ng-click="add(1)" class="btn btn-default">+</button>
-        <button ng-click="add(-1)" class="btn btn-default">-</button>
+      <div ng-controller="IncrementCtrl"> 
+        <button ng-click="add(1)">+</button>
+        <button ng-click="add(-1)">-</button>
         <p>{{value}}</p>
       </div>
       
-      <!-- <div ng-controller="WatchCtrl">
+      <div ng-controller="WatchCtrl"> 
         <input type="text" ng-model="name">
         <p>{{greeting}}</p>
-      </div> -->
-      <h2>Nested controlers</h2>
-      <div ng-controller="OuterCtrl">
-        from outer ctrl: <input type="text" ng-model="firstName"><br>
-        <div ng-controller="NestedCtrl">
-          from inner: <input type="text" ng-model="firstName">
-        </div>
       </div>
-      <h2>Using services</h2>
-      <div ng-controller="UsersCtrl">
-        <ul ng-repeat="user in users">
-          <li>{{user}}</li>
-        </ul>
-      </div>
-      <div ng-controller="DisableButtonCtrl">
-        <h2>Enabling/Disabling DOM Elements Conditionally</h2>
-        <input type="text" ng-model="inputValue">
-        <button ng-disabled="IsDisabled()">Send</button>
-      </div>
-      <div>
-        <h2>Create directive</h2>
-        <p click-color="red">Click me</p>
-      </div>
-      <div>
-        <h2>Directive to repeate content</h2>
-        <div repeate-times="5">
-          <p>Text to repeate</p>
-        </div>
-      </div>
-      
-      <!-- Services -->
-      <script src="/script/Services/UsersSrvc.js"></script>
-      <!-- COntrollers -->
-      <script src="script\ToggleCtlr.js"></script>
-      <script src="script\Controllers\DefaultValueCtlr.js"></script>
-      <script src="script\Controllers\IncrementCtrl.js"></script>
-      <script src="script\Controllers\WatchCtrl.js"></script>
-      <script src="script/Controllers/OuterCtrl.js"></script>
-      <script src="script/Controllers/NestedCtrl.js"></script>
-      <script src="script/Controllers/UsersCtrl.js"></script>
-      <script src="script/Controllers/DisableButtonCtrl.js"></script>
-    </body>
-  </html>
+
+      <!--test-->
+
+    <script src="script\ToggleCtlr.js"></script>
+    <script src="script\Controllers\DefaultValueCtlr.js"></script>
+    <script src="script\Controllers\IncrementCtrl.js"></script>
+    <script src="script\Controllers\WatchCtrl.js"></script>
+  </body>
+</html>
