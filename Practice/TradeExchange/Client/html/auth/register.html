@@ -1,0 +1,52 @@
+<div class="form-horizontal center" action="" method="POST" ng-controller="RegisterCtrl">
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+    <div class="control-group">
+
+      <!-- E-mail -->
+      <label class="control-label" for="email">E-mail</label>
+      <div class="controls">
+        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" ng-model="user.email">
+        <p class="help-block">Please provide your E-mail</p>
+      </div>
+
+      <!-- Driver -->
+      <label class="control-label" for="isDriver">Driver</label>
+      <div class="controls">
+        <input type="checkbox" id="isDriver" name="isDriver" placeholder="" class="input-xlarge" ng-model="user.isDriver">
+        <p class="help-block">Check if you are a driver.</p>
+      </div>
+
+      <!-- Car -->
+      <div ng-show="user.isDriver">
+        <label class="control-label" for="car">Car Model</label>
+        <div class="controls">
+          <input type="text" id="car" name="car" placeholder="Car model" class="input-xlarge" ng-model="user.car">
+          <p class="help-block">Driver must show car model.</p>
+        </div>
+      </div>
+
+      <!-- Password-->
+      <label class="control-label" for="password">Password</label>
+      <div class="controls">
+        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" ng-model="user.password">
+        <p class="help-block">Password should be at least 4 characters</p>
+      </div>
+
+      <!-- Password Confirm -->
+      <label class="control-label" for="password_confirm">Password (Confirm)</label>
+      <div class="controls">
+        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge" ng-model="user.confirmPassword">
+        <p class="help-block">Please confirm password</p>
+      </div>
+
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success" ng-click="register()">Register</button>
+        <a href="/#/home" class="btn btn-success">Cancel</a>
+      </div>
+    </div>
+  </fieldset>
+</div>
