@@ -21,20 +21,8 @@
             })
             .when('/logout', {
                 controller: function () {
-
+                    $location.path('/home');
                 }
-            })
-            .when('/drivers', {
-                templateUrl: '/html/drivers/drivers.html',
-                controller: 'DriversCtrl'
-            })
-            .when('/trips', {
-                templateUrl: 'html/trips/trips.html',
-                controller: 'TripsCtrl'
-            })
-            .when('/trips/create', {
-                templateUrl: '/html/trips/create-trip.html',
-                controller: 'CreateTripCtrl'
             })
             .otherwise({
                 controller: function ($location) {

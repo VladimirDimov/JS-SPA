@@ -1,0 +1,56 @@
+<div class="form-horizontal" action="" method="POST">
+    <form name="myForm" class="col-md-4 col-md-offset-4">
+        <div id="legend">
+            <legend class="">Register</legend>
+        </div>
+        <div class="control-group">
+
+            <!-- E-mail -->
+            <label class="control-label" for="email">E-mail</label>
+            <div class="controls">
+                <input type="email" ng-pattern="'^.+@[A-z]+\..+$'" id="email" name="email" placeholder="Email" class="input-xlarge" ng-model="user.email"
+                required>
+                <p class="help-block" ng-show="myForm.email.$error.required">Please provide your E-mail</p>
+                <p class="help-block" ng-show="myForm.email.$error.pattern">Invalid email format</p>
+            </div>
+
+            <!-- Driver -->
+            <label class="control-label" for="isDriver">Driver</label>
+            <div class="controls">
+                <input type="checkbox" id="isDriver" name="isDriver" placeholder="" class="input-xlarge" ng-model="user.isDriver">
+                <p class="help-block">Check if you are a driver.</p>
+            </div>
+
+            <!-- Car -->
+            <div ng-show="user.isDriver">
+                <label class="control-label" for="car">Car Model</label>
+                <div class="controls">
+                    <input type="text" id="car" name="car" placeholder="Car model" class="input-xlarge" ng-model="user.car">
+                    <p class="help-block">Driver must show car model.</p>
+                </div>
+            </div>
+
+            <!-- Password-->
+            <label class="control-label" for="password">Password</label>
+            <div class="controls">
+                <input type="password" id="password" name="password" placeholder="Password" class="input-xlarge" ng-model="user.password"
+                ng-minlength="5" required>
+                <p class="help-block" ng-show="myForm.password.$error.minlength">Password should be at least 5 characters</p>
+                <p class="help-block" ng-show="myForm.password.$error.required">Please, type your password.</p>
+            </div>
+
+            <!-- Password Confirm -->
+            <label class="control-label" for="password_confirm">Password (Confirm)</label>
+            <div class="controls">
+                <input type="password" id="password_confirm" name="password_confirm" placeholder="Repeat password" class="input-xlarge" ng-model="user.confirmPassword">
+                <p class="help-block" ng-show="user.confirmPassword != user.password">Please confirm password</p>
+            </div>
+            <hr>
+            <!-- Button -->
+            <div class="controls">
+                <button class="btn btn-success" ng-click="register(user)" ng-disabled="myForm.$invalid">Register</button>
+                <a href="/#/home" class="btn btn-success">Cancel</a>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+<div class="col-md-4 col-md-offset-4">
+    <form class="form-horizontal" name="CreateTripForm">
+        <fieldset>
+            <legend>Create new trip</legend>
+            <div class="form-group">
+                <label for="available-seats" class="col-lg-2 control-label">Available seats</label>
+                <div class="col-lg-10">
+                    <input type="number" required class="form-control" id="available-seats" placeholder="Available seats" ng-model="newTrip.availableSeats"
+                    min="1">
+                </div>
+            </div>
+            <md-cities label="From: " ng-model="newTrip.from" required></md-cities>
+            <md-cities label="To: " ng-model="newTrip.to" required></md-cities>
+            <div class="form-group">
+                <label for="departure-time" class="col-lg-2 control-label">Departure time</label>
+                <div class="col-lg-10">
+                    <input kendo-date-time-picker required id="departure-time" ng-model="newTrip.departureTime">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button ng-click="create(newTrip)" type="submit" class="btn btn-primary" ng-disabled="CreateTripForm.$invalid ||  newTrip.availableSeats == 0">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+<div class="form-group" md-show-for-logged>
+    <div class="input-group col-md-4">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control" ng-model="filterValue">
+        <span class="input-group-btn"><button class="btn btn-default" type="button" ng-click="filterByName(filterValue, page)">Filter</button> </span>
+    </div>
+    <div class="input-group">
+        <button ng-click="prevPage()">
+            <<</button>
+                <input value="1" min="1" type="text" class="form-control col-sm-2" style="display: inline;" ng-model="page">
+                <button ng-click="nextPage()">>></button>
+    </div>
+    <input type="text" ng-model="orderByVal">
+    <select ng-model="orderByVal" ng-click="updateSorter(orderByVal)">
+        <option value="none" selected>None</option>
+        <option value="name">Name</option>
+        <option value="numberOfUpcomingTrips">Upcoming trips</option>
+        <option value="numberOfTotalTrips">Total trips</option>
+    </select>
+</div>
+<hr>
+<br>
+<br>
+<div ng-include="'/html/drivers/last-drivers.html'"></div>

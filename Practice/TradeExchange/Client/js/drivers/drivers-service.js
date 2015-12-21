@@ -1,14 +1,19 @@
 (function () {
-	'use strict'
+    'use strict'
 
-	function driversSrv($scope) {
-		return {
-			getLastRegistered: function getLastRegistered($http, $q) {
-				
-			}
-		};
-	};
+    function driversSrv(dataSrv) {
+        return {
+            getDrivers: function getDrivers(page, size, authorizationHeaders) {
+                var driversPromise = dataSrv.get('api/drivers');
+                return driversPromise;
+            },
+            filterByName(val, page) {
+                var queryString = '?page=' + page + '&username=' + val;
+                return dataSrv.get('api/drivers' + queryString);
+            }
+        };
+    };
 
-	angular.module('app.services')
-		.factory('driversSrv', ['$http', '$q', driversSrv]);
+    angular.module('app.services')
+        .factory('driversSrv', ['dataSrv', driversSrv]);
 } ());

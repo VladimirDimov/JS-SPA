@@ -1,0 +1,11 @@
+.center {
+    text-align:center;
+}
+
+.center fieldset {
+    display:inline-block;
+}
+
+.validation-error {
+    color: red;
+}

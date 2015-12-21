@@ -1,5 +1,5 @@
 <div class="form-horizontal center" action="" method="POST" ng-controller="RegisterCtrl">
-  <fieldset>
+  <form name="myForm">
     <div id="legend">
       <legend class="">Register</legend>
     </div>
@@ -8,8 +8,9 @@
       <!-- E-mail -->
       <label class="control-label" for="email">E-mail</label>
       <div class="controls">
-        <input type="text" id="email" name="email" placeholder="" class="input-xlarge" ng-model="user.email">
-        <p class="help-block">Please provide your E-mail</p>
+        <input type="email" ng-pattern="'^.+@[A-z]+\..+$'" id="email" name="email" placeholder="Email" class="input-xlarge" ng-model="user.email" required>
+        <p class="help-block" ng-show="myForm.email.$error.required">Please provide your E-mail</p>
+        <p class="help-block" ng-show="myForm.email.$error.pattern">Invalid email format</p>
       </div>
 
       <!-- Driver -->
@@ -31,22 +32,23 @@
       <!-- Password-->
       <label class="control-label" for="password">Password</label>
       <div class="controls">
-        <input type="password" id="password" name="password" placeholder="" class="input-xlarge" ng-model="user.password">
-        <p class="help-block">Password should be at least 4 characters</p>
+        <input type="password" id="password" name="password" placeholder="Password" class="input-xlarge" ng-model="user.password" ng-minlength="5" required>
+        <p class="help-block" ng-show="myForm.password.$error.minlength">Password should be at least 5 characters</p>
+        <p class="help-block" ng-show="myForm.password.$error.required">Please, type your password.</p>
       </div>
 
       <!-- Password Confirm -->
       <label class="control-label" for="password_confirm">Password (Confirm)</label>
       <div class="controls">
-        <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge" ng-model="user.confirmPassword">
-        <p class="help-block">Please confirm password</p>
+        <input type="password" id="password_confirm" name="password_confirm" placeholder="Repeat password" class="input-xlarge" ng-model="user.confirmPassword">
+        <p class="help-block" ng-show="user.confirmPassword != user.password">Please confirm password</p>
       </div>
-
+      <hr>
       <!-- Button -->
       <div class="controls">
-        <button class="btn btn-success" ng-click="register()">Register</button>
+        <button class="btn btn-success" ng-click="register()" ng-disabled="myForm.$invalid">Register</button>
         <a href="/#/home" class="btn btn-success">Cancel</a>
       </div>
     </div>
-  </fieldset>
+  </form>
 </div>

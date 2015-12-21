@@ -50,7 +50,20 @@
 		};
 
 		function logout() {
-			localStorage.clear();
+			var defered = $q.defer();
+			var address = globalConstants.baseAddress + 'api/users/logout';
+			var headers = getAuthorizationHeaders();
+
+			$http.post(address, null, headers)
+				.success(function (res) {
+					defered.resolve(res);
+					localStorage.clear();
+				}).error(function (err) {
+					defered.reject(err);
+				});
+
+
+			return defered.promise;
 		};
 
 		function getCurrentUserInfo() {
@@ -58,12 +71,26 @@
 			return userInfo;
 		}
 
+		function getAuthorizationHeaders() {
+			var userInfo = getCurrentUserInfo();
+			if (!userInfo) {
+				return {};
+			} else {
+				return {
+					headers: {
+						"Authorization": 'Bearer ' + (userInfo.access_token || '')
+					}
+				}
+			}
+		}
+
 		return {
 			login: login,
 			register: register,
 			updateUserOnLocalStorage: updateUserOnLocalStorage,
 			logout: logout,
-			getCurrentUserInfo: getCurrentUserInfo
+			getCurrentUserInfo: getCurrentUserInfo,
+			getAuthorizationHeaders: getAuthorizationHeaders
 		}
 	};
 
